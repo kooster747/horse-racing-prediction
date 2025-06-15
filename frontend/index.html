@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horse Racing Prediction - Premium Edition</title>
+    <link rel="stylesheet" href="enhanced_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <!-- Video background for header -->
+        <video class="header-video" autoplay muted loop>
+            <source src="/videos/horse_racing.mp4" type="video/mp4">
+            <!-- Fallback image if video doesn't load -->
+        </video>
+        
+        <div class="header-content">
+            <h1>Horse Racing Prediction</h1>
+            <p class="tagline">Advanced analytics for smarter betting decisions</p>
+            <div class="win-rate">76% Win Rate</div>
+            <div class="header-buttons">
+                <a href="#register" class="btn">Sign Up</a>
+                <a href="#login" class="btn btn-secondary">Login</a>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="/premium_graphics/logo.png" alt="Horse Racing Prediction Logo">
+                Horse Racing Prediction
+            </a>
+            <ul class="nav-links">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Races</a></li>
+                <li><a href="#">Predictions</a></li>
+                <li><a href="#">Statistics</a></li>
+                <li><a href="#">Strategy</a></li>
+                <li class="user-menu"><a href="#"><i class="fas fa-user-circle"></i> My Account</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="main-content">
+            <div class="card slide-in-left">
+                <h2>Today's Top Picks</h2>
+                <p>Our algorithm has analyzed thousands of races and identified these high-value opportunities for today:</p>
+                
+                <div class="race-prediction">
+                    <div class="prediction-header">
+                        <strong>Royal Ascot (UK)</strong>
+                        <span class="prediction-time">3:45 PM</span>
+                    </div>
+                    <div>1st: <span class="prediction-value">Silver Streak (4.5)</span></div>
+                    <div class="prediction-probability">
+                        Win Probability: 
+                        <div class="probability-bar">
+                            <div class="probability-fill" style="width: 68%"></div>
+                        </div>
+                        68%
+                    </div>
+                </div>
+                
+                <div class="race-prediction">
+                    <div class="prediction-header">
+                        <strong>Belmont Park (US)</strong>
+                        <span class="prediction-time">5:20 PM</span>
+                    </div>
+                    <div>1st: <span class="prediction-value">Northern Dancer (2.8)</span></div>
+                    <div class="prediction-probability">
+                        Win Probability: 
+                        <div class="probability-bar">
+                            <div class="probability-fill" style="width: 72%"></div>
+                        </div>
+                        72%
+                    </div>
+                </div>
+                
+                <div class="race-prediction">
+                    <div class="prediction-header">
+                        <strong>Flemington (AUS)</strong>
+                        <span class="prediction-time">2:15 PM</span>
+                    </div>
+                    <div>1st: <span class="prediction-value">Ocean King (3.2)</span></div>
+                    <div class="prediction-probability">
+                        Win Probability: 
+                        <div class="probability-bar">
+                            <div class="probability-fill" style="width: 65%"></div>
+                        </div>
+                        65%
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card slide-in-right">
+                <h2><span class="live-indicator"></span> Live Updates</h2>
+                <p>Our system continuously monitors odds changes and track conditions right up to race start time.</p>
+                
+                <div class="update-item">
+                    <div class="update-time">5 minutes ago</div>
+                    <div class="update-content">Track condition at Belmont Park changed to "Good"</div>
+                    <div class="update-impact impact-positive">Odds improved: 3.2 → 2.8</div>
+                </div>
+                
+                <div class="update-item">
+                    <div class="update-time">12 minutes ago</div>
+                    <div class="update-content">Jockey change for Silver Streak: J. Smith replacing T. Johnson</div>
+                    <div class="update-impact impact-positive">Win probability +3%</div>
+                </div>
+                
+                <div class="update-item">
+                    <div class="update-time">25 minutes ago</div>
+                    <div class="update-content">Weather forecast updated for Royal Ascot: Light rain expected</div>
+                    <div class="update-impact impact-neutral">No significant impact</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- New Personalized Recommendations Section -->
+        <div class="personalized-recommendations">
+            <h2>Your Personalized Recommendations</h2>
+            <div class="login-prompt">
+                <p>Sign in to see betting recommendations tailored to your preferences and betting history.</p>
+                <div class="auth-buttons">
+                    <a href="#register" class="btn">Sign Up</a>
+                    <a href="#login" class="btn btn-secondary">Login</a>
+                </div>
+            </div>
+            
+            <!-- This section would be shown to logged-in users -->
+            <div class="user-recommendations" style="display: none;">
+                <div class="recommendation-header">
+                    <h3>Based on your betting history and preferences</h3>
+                    <div class="preference-tags">
+                        <span class="pref-tag">Sprint Races</span>
+                        <span class="pref-tag">Turf Tracks</span>
+                        <span class="pref-tag">Value Bets</span>
+                    </div>
+                </div>
+                
+                <div class="recommendation-cards">
+                    <div class="recommendation-card">
+                        <div class="match-score">98% Match</div>
+                        <h4>Royal Ascot - King's Stand Stakes</h4>
+                        <p>This sprint race on turf matches your preferred betting pattern.</p>
+                        <div class="rec-details">
+                            <div class="rec-horse">Recommended: <strong>Battaash</strong></div>
+                            <div class="rec-odds">Current Odds: <strong>3.75</strong></div>
+                            <div class="rec-probability">Win Probability: <strong>72%</strong></div>
+                        </div>
+                        <a href="#" class="btn btn-small">View Details</a>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <div class="match-score">92% Match</div>
+                        <h4>Belmont Park - Jaipur Stakes</h4>
+                        <p>6 furlong turf sprint with value betting opportunity.</p>
+                        <div class="rec-details">
+                            <div class="rec-horse">Recommended: <strong>Casa Creed</strong></div>
+                            <div class="rec-odds">Current Odds: <strong>6.50</strong></div>
+                            <div class="rec-probability">Win Probability: <strong>65%</strong></div>
+                        </div>
+                        <a href="#" class="btn btn-small">View Details</a>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <div class="match-score">85% Match</div>
+                        <h4>Flemington - Lightning Stakes</h4>
+                        <p>Straight course sprint with historically high ROI for your betting style.</p>
+                        <div class="rec-details">
+                            <div class="rec-horse">Recommended: <strong>Nature Strip</strong></div>
+                            <div class="rec-odds">Current Odds: <strong>4.20</strong></div>
+                            <div class="rec-probability">Win Probability: <strong>68%</strong></div>
+                        </div>
+                        <a href="#" class="btn btn-small">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="featured-races">
+            <h2>Featured Races</h2>
+            <div class="race-cards">
+                <div class="race-card">
+                    <div class="race-image" style="background-image: url('/premium_graphics/race_action.jpg')">
+                        <div class="race-overlay">Royal Ascot</div>
+                    </div>
+                    <div class="race-details">
+                        <div class="race-time">Today, 3:45 PM (GMT)</div>
+                        <h3>Queen Anne Stakes</h3>
+                        <p>Group 1, 1 mile, 4yo+</p>
+                        <div class="race-prediction">
+                            Top Pick: <span class="prediction-value">Silver Streak</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="race-card">
+                    <div class="race-image" style="background-image: url('/premium_graphics/jockey_closeup.jpg')">
+                        <div class="race-overlay">Belmont Park</div>
+                    </div>
+                    <div class="race-details">
+                        <div class="race-time">Today, 5:20 PM (ET)</div>
+                        <h3>Manhattan Stakes</h3>
+                        <p>Grade 1, 1¼ miles, 4yo+</p>
+                        <div class="race-prediction">
+                            Top Pick: <span class="prediction-value">Northern Dancer</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="race-card">
+                    <div class="race-image" style="background-image: url('/premium_graphics/finish_line.png')">
+                        <div class="race-overlay">Flemington</div>
+                    </div>
+                    <div class="race-details">
+                        <div class="race-time">Tomorrow, 2:15 PM (AEST)</div>
+                        <h3>Melbourne Cup Trial</h3>
+                        <p>Group 3, 2500m, 3yo+</p>
+                        <div class="race-prediction">
+                            Top Pick: <span class="prediction-value">Ocean King</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="statistics slide-in-up">
+            <h2>Performance Statistics</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="stat-value" data-count="76">76%</div>
+                    <div class="stat-label">Win Rate</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="stat-value" data-count="16.57">+16.57%</div>
+                    <div class="stat-label">Average ROI</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-globe"></i></div>
+                    <div class="stat-value" data-count="7">7</div>
+                    <div class="stat-label">Countries Covered</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="betting-strategy">
+            <img src="/premium_graphics/dramatic_race.jpg" alt="Horse racing strategy" class="strategy-image">
+            <div class="strategy-content">
+                <h2>Our Winning Strategy</h2>
+                <p>Our prediction model has achieved a 76% win rate through sophisticated statistical modeling and machine learning algorithms.</p>
+                
+                <div class="strategy-points">
+                    <div class="strategy-point">
+                        <div class="point-number">1</div>
+                        <div>We only recommend bets with a win probability of 60% or higher</div>
+                    </div>
+                    
+                    <div class="strategy-point">
+                        <div class="point-number">2</div>
+                        <div>Minimum odds of 1.5 to ensure positive expected value</div>
+                    </div>
+                    
+                    <div class="strategy-point">
+                        <div class="point-number">3</div>
+                        <div>Real-time data updates right up to race start time</div>
+                    </div>
+                    
+                    <div class="strategy-point">
+                        <div class="point-number">4</div>
+                        <div>Analysis of hundreds of variables including horse past performance, jockey statistics, and track conditions</div>
+                    </div>
+                </div>
+                
+                <a href="#" class="btn">View Full Strategy Guide</a>
+            </div>
+        </div>
+        
+        <div class="testimonials">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "This prediction software has completely transformed my betting strategy. The real-time updates and high win rate have helped me achieve consistent profits for the first time."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/horse_racing_graphics/testimonial1.jpg" alt="James Wilson" class="author-avatar">
+                        <div class="author-info">
+                            <h4>James Wilson</h4>
+                            <p>Professional Bettor, 2 years with us</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "The accuracy of the predictions is remarkable. I've been following horse racing for decades, and this system catches insights that even experienced bettors miss."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/horse_racing_graphics/testimonial2.jpg" alt="Sarah Johnson" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Racing Enthusiast, 1 year with us</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "What impresses me most is how the system adapts to changing conditions. When a jockey change happened minutes before a race, the prediction updated instantly and saved me from a bad bet."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/horse_racing_graphics/testimonial3.jpg" alt="Michael Chen" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Data Analyst, 6 months with us</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- User Registration Modal -->
+        <div id="register-modal" class="auth-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Create Your Account</h2>
+                <p>Sign up to get personalized race predictions based on your preferences.</p>
+                
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-username">Username</label>
+                        <input type="text" id="register-username" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-confirm-password">Confirm Password</label>
+                        <input type="password" id="register-confirm-password" required>
+                    </div>
+                    
+                    <h3>Betting Preferences</h3>
+                    <p>Help us personalize your recommendations</p>
+                    
+                    <div class="form-group">
+                        <label>Preferred Race Types</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="race-type" value="sprint"> Sprint</label>
+                            <label><input type="checkbox" name="race-type" value="middle"> Middle Distance</label>
+                            <label><input type="checkbox" name="race-type" value="long"> Long Distance</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Preferred Track Surfaces</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="surface" value="turf"> Turf</label>
+                            <label><input type="checkbox" name="surface" value="dirt"> Dirt</label>
+                            <label><input type="checkbox" name="surface" value="synthetic"> Synthetic</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Betting Strategy</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="strategy" value="value"> Value Betting</label>
+                            <label><input type="checkbox" name="strategy" value="favorites"> Favorites</label>
+                            <label><input type="checkbox" name="strategy" value="longshots"> Longshots</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn">Create Account</button>
+                </form>
+                
+                <div class="auth-footer">
+                    Already have an account? <a href="#login" class="switch-auth">Log In</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- User Login Modal -->
+        <div id="login-modal" class="auth-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Welcome Back</h2>
+                <p>Log in to access your personalized predictions</p>
+                
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    
+                    <div class="form-group remember-me">
+                        <label>
+                            <input type="checkbox" id="remember-me">
+                            Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn">Log In</button>
+                </form>
+                
+                <div class="auth-footer">
+                    Don't have an account? <a href="#register" class="switch-auth">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">How It Works</a>
+                <a href="#">Pricing</a>
+                <a href="#">FAQ</a>
+                <a href="#">Contact</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            
+            <p>&copy; 2025 Horse Racing Prediction. All rights reserved.</p>
+            <p>Past performance is not a guarantee of future results. Please bet responsibly.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Animated counter for statistics
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate statistics when they come into view
+            const statValues = document.querySelectorAll('.stat-value');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statValues.forEach(stat => {
+                observer.observe(stat);
+            });
+            
+            function animateCounter(element) {
+                const target = parseFloat(element.getAttribute('data-count'));
+                const duration = 2000; // ms
+                const step = 30; // ms
+                const isPercentage = element.textContent.includes('%');
+                const isPlus = element.textContent.includes('+');
+                
+                let current = 0;
+                const increment = target / (duration / step);
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    let displayValue = current.toFixed(2);
+                    if (parseInt(displayValue) === parseFloat(displayValue)) {
+                        displayValue = parseInt(displayValue);
+                    }
+                    
+                    element.textContent = `${isPlus ? '+' : ''}${displayValue}${isPercentage ? '%' : ''}`;
+                }, step);
+            }
+            
+            // Parallax effect for header
+            const header = document.querySelector('header');
+            const headerVideo = document.querySelector('.header-video');
+            
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.scrollY;
+                if (scrollPosition < header.offsetHeight) {
+                    headerVideo.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+                }
+            });
+            
+            // Modal functionality for registration and login
+            const registerLinks = document.querySelectorAll('a[href="#register"]');
+            const loginLinks = document.querySelectorAll('a[href="#login"]');
+            const registerModal = document.getElementById('register-modal');
+            const loginModal = document.getElementById('login-modal');
+            const closeButtons = document.querySelectorAll('.close-modal');
+            const switchAuthLinks = document.querySelectorAll('.switch-auth');
+            
+            // Open registration modal
+            registerLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    registerModal.style.display = 'flex';
+                });
+            });
+            
+            // Open login modal
+            loginLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    loginModal.style.display = 'flex';
+                });
+            });
+            
+            // Close modals
+            closeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    registerModal.style.display = 'none';
+                    loginModal.style.display = 'none';
+                });
+            });
+            
+            // Switch between auth modals
+            switchAuthLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (link.getAttribute('href') === '#register') {
+                        loginModal.style.display = 'none';
+                        registerModal.style.display = 'flex';
+                    } else {
+                        registerModal.style.display = 'none';
+                        loginModal.style.display = 'flex';
+                    }
+                });
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === registerModal) {
+                    registerModal.style.display = 'none';
+                }
+                if (e.target === loginModal) {
+                    loginModal.style.display = 'none';
+                }
+            });
+            
+            // Form submission (would connect to backend in production)
+            const registerForm = document.getElementById('register-form');
+            const loginForm = document.getElementById('login-form');
+            
+            registerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // In a real implementation, this would send data to the server
+                alert('Registration successful! In a real implementation, this would create your account and log you in.');
+                registerModal.style.display = 'none';
+                
+                // Show personalized recommendations (demo only)
+                document.querySelector('.login-prompt').style.display = 'none';
+                document.querySelector('.user-recommendations').style.display = 'block';
+            });
+            
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // In a real implementation, this would authenticate with the server
+                alert('Login successful! In a real implementation, this would authenticate your credentials.');
+                loginModal.style.display = 'none';
+                
+                // Show personalized recommendations (demo only)
+                document.querySelector('.login-prompt').style.display = 'none';
+                document.querySelector('.user-recommendations').style.display = 'block';
+            });
+            
+            // Initialize probability bars with animation
+            const probabilityBars = document.querySelectorAll('.probability-fill');
+            
+            probabilityBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>

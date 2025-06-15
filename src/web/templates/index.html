@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-horse-head me-2"></i>
+                Horse Racing Prediction
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#recommendations">Recommendations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#upcoming-races">Upcoming Races</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#stats">Statistics</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex">
+                <span class="navbar-text me-3">
+                    <i class="fas fa-sync-alt me-1" id="update-status"></i>
+                    <span id="last-update">Last update: Just now</span>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-filter me-2"></i>
+                            Filters
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="country-filter" class="form-label">Country</label>
+                            <select class="form-select" id="country-filter">
+                                {% for country in countries %}
+                                <option value="{{ country }}">{{ country }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="time-filter" class="form-label">Time Frame</label>
+                            <select class="form-select" id="time-filter">
+                                <option value="all">All Upcoming</option>
+                                <option value="today">Today</option>
+                                <option value="hour">Next Hour</option>
+                                <option value="6hours">Next 6 Hours</option>
+                            </select>
+                        </div>
+                        <button id="apply-filters" class="btn btn-primary w-100">
+                            <i class="fas fa-search me-2"></i>
+                            Apply Filters
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card mb-4" id="stats">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-chart-line me-2"></i>
+                            Model Statistics
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="stats-container">
+                            <div class="stat-item">
+                                <div class="stat-label">Win Rate</div>
+                                <div class="stat-value" id="win-rate">--</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">ROI</div>
+                                <div class="stat-value" id="roi">--</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Confidence</div>
+                                <div class="stat-value" id="confidence">--</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Races Analyzed</div>
+                                <div class="stat-value" id="races-analyzed">--</div>
+                            </div>
+                        </div>
+                        <hr>
+                        <h6 class="mb-2">Optimal Strategy</h6>
+                        <div class="strategy-details" id="strategy-details">
+                            Loading...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="card mb-4" id="recommendations">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0">
+                            <i class="fas fa-star me-2"></i>
+                            Top Betting Recommendations
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Race</th>
+                                        <th>Time</th>
+                                        <th>Horse</th>
+                                        <th>Odds</th>
+                                        <th>Win Probability</th>
+                                        <th>Expected Value</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recommendations-table">
+                                    <tr>
+                                        <td colspan="7" class="text-center">Loading recommendations...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4" id="upcoming-races">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-calendar me-2"></i>
+                            Upcoming Races
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Race</th>
+                                        <th>Track</th>
+                                        <th>Country</th>
+                                        <th>Time</th>
+                                        <th>Class</th>
+                                        <th>Distance</th>
+                                        <th>Going</th>
+                                        <th>Runners</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="races-table">
+                                    <tr>
+                                        <td colspan="9" class="text-center">Loading races...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Race Details Modal -->
+    <div class="modal fade" id="raceModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="raceModalTitle">Race Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="race-info" id="race-info">
+                                Loading race information...
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="race-stats">
+                                <h5>Race Statistics</h5>
+                                <div class="race-stats-content" id="race-stats">
+                                    Loading race statistics...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Horse</th>
+                                    <th>Age</th>
+                                    <th>Jockey</th>
+                                    <th>Trainer</th>
+                                    <th>Weight</th>
+                                    <th>Draw</th>
+                                    <th>Odds</th>
+                                    <th>Win Probability</th>
+                                    <th>Expected Value</th>
+                                    <th>Recommendation</th>
+                                </tr>
+                            </thead>
+                            <tbody id="race-horses">
+                                <tr>
+                                    <td colspan="10" class="text-center">Loading horses...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Horse Racing Prediction</h5>
+                    <p>A sophisticated prediction system with real-time data updates and optimized betting strategies.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Features</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Live Updates</a></li>
+                        <li><a href="#" class="text-white">Multi-Country Support</a></li>
+                        <li><a href="#" class="text-white">Betting Recommendations</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Documentation</a></li>
+                        <li><a href="#" class="text-white">API</a></li>
+                        <li><a href="#" class="text-white">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 Horse Racing Prediction. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+/* Main stylesheet for Horse Racing Prediction web application */
+
+/* Global styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Navbar customization */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+/* Card styling */
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    border-radius: 8px 8px 0 0 !important;
+    font-weight: bold;
+}
+
+/* Stats display */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+/* Strategy details */
+.strategy-details {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+/* Table customization */
+.table {
+    font-size: 0.95rem;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+/* Race info in modal */
+.race-info, .race-stats {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/* Recommendation highlighting */
+.recommended {
+    background-color: rgba(25, 135, 84, 0.1);
+    font-weight: bold;
+}
+
+/* Update status indicator */
+#update-status {
+    color: #198754;
+}
+
+#update-status.updating {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .navbar-text {
+        display: none;
+    }
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+/* Badge styling for recommendations */
+.badge-recommendation {
+    background-color: #198754;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-weight: normal;
+}
+
+/* Probability color coding */
+.prob-high {
+    color: #198754;
+    font-weight: bold;
+}
+
+.prob-medium {
+    color: #fd7e14;
+    font-weight: bold;
+}
+
+.prob-low {
+    color: #dc3545;
+}
+
+/* Expected value styling */
+.ev-positive {
+    color: #198754;
+    font-weight: bold;
+}
+
+.ev-negative {
+    color: #dc3545;
+}
+
+/* Race countdown styling */
+.race-countdown {
+    font-weight: bold;
+    color: #dc3545;
+}
+
+/* Footer styling */
+footer {
+    margin-top: 50px;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
